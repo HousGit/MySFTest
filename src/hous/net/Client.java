@@ -12,7 +12,9 @@ import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationExceptio
 
 public class Client
 {
-
+	static String url = "jdbc:mysql://localhost:3306/test";
+	static String user = "root";
+	static String psd = "hous";
 	public static void main(String[] args)// ³ÌÐòÈë¿Ú
 	{
 
@@ -147,7 +149,7 @@ public class Client
 				{
 					Class.forName("com.mysql.jdbc.Driver");
 					conn = DriverManager.getConnection(
-							"jdbc:mysql://localhost:3306/test", "root", "hous");
+							url, user	,psd);
 					pstm = conn
 							.prepareStatement("insert into stu value(?, ?, ?);");
 					pstm.setString(1, textFieldID.getText());
@@ -210,7 +212,7 @@ public class Client
 				{
 					Class.forName("com.mysql.jdbc.Driver");
 					conn = DriverManager.getConnection(
-							"jdbc:mysql://localhost:3306/test", "root", "hous");
+							url, user, psd);
 					pstm = conn
 							.prepareStatement("delete  from stu where sID=?");
 					pstm.setString(1, textFieldID.getText());
@@ -273,8 +275,7 @@ public class Client
 					{
 						Class.forName("com.mysql.jdbc.Driver");
 						conn = DriverManager.getConnection(
-								"jdbc:mysql://localhost:3306/test", "root",
-								"hous");
+								url, user,psd);
 						stm = conn.createStatement();
 						ResultSet rs = stm.executeQuery("select * from stu");
 						while (rs.next())
@@ -330,8 +331,7 @@ public class Client
 					{
 						Class.forName("com.mysql.jdbc.Driver");
 						conn1 = DriverManager.getConnection(
-								"jdbc:mysql://localhost:3306/test", "root",
-								"hous");
+								url,user,psd);
 						pstm1 = conn1
 								.prepareStatement("select * from stu where sID=? ");
 						pstm1.setString(1, textFieldID.getText());
@@ -401,8 +401,7 @@ public class Client
 					{
 						Class.forName("com.mysql.jdbc.Driver");
 						conn1 = DriverManager.getConnection(
-								"jdbc:mysql://localhost:3306/test", "root",
-								"hous");
+								url, user,psd);
 						pstm1 = conn1
 								.prepareStatement("select * from stu where sName=? ");
 						pstm1.setString(1, textFieldName.getText());
@@ -472,8 +471,7 @@ public class Client
 					{
 						Class.forName("com.mysql.jdbc.Driver");
 						conn1 = DriverManager.getConnection(
-								"jdbc:mysql://localhost:3306/test", "root",
-								"hous");
+								url, user,psd);
 						pstm1 = conn1
 								.prepareStatement("select * from stu where sSex=? ");
 						pstm1.setString(1, textFieldsex.getText());
